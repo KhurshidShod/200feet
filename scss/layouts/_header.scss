@@ -23,6 +23,12 @@ header {
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
+
+    @media (max-width: 475px) {
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+    }
     &_logo {
       width: 260px;
       @media (max-width: 768px) {
@@ -38,6 +44,11 @@ header {
       justify-content: space-between;
       align-items: center;
       gap: 50px;
+      @media (max-width: 475px) {
+        width: 100%;
+        padding: 0;
+        max-width: none;
+      }
       @media (max-width: 1366px) {
         gap: 30px;
       }
