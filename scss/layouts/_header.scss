@@ -1,0 +1,136 @@
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  transition: 0.1s linear;
+  &.sticky {
+    background: linear-gradient(
+      153deg,
+      #05050763 11.93%,
+      #2d60a761 47.46%,
+      #06204762 71.33%,
+      #0505075e 84.99%
+    );
+    backdrop-filter: blur(7.5px);
+    transition: 0.1s linear;
+  }
+  .header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    &_logo {
+      width: 260px;
+      @media (max-width: 768px) {
+        width: 220px;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    &_contact {
+      max-width: 367px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 50px;
+      @media (max-width: 1366px) {
+        gap: 30px;
+      }
+      @media (max-width: 768px) {
+        gap: 20px;
+      }
+      @media (max-width: 530px) {
+        gap: 10px;
+      }
+      &-icons {
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        flex-direction: row;
+        gap: 13px;
+        @media (max-width: 768px) {
+          gap: 5px;
+        }
+        span {
+          width: 45px;
+          height: 45px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 5px;
+          border: 1px solid #fff;
+          cursor: pointer;
+          @media (max-width: 1366px) {
+            width: 40px;
+            height: 40px;
+          }
+          @media (max-width: 768px) {
+            width: 35px;
+            height: 35px;
+          }
+          @media (max-width: 530px) {
+            width: 25px;
+            height: 25px;
+          }
+          &:hover {
+            background-color: rgba(90, 201, 255, 1);
+            border: none;
+            transition: 0.1s linear all;
+            svg {
+              path {
+                fill: white;
+                transition: 0.1s linear all;
+              }
+            }
+          }
+        }
+      }
+      &-info {
+        max-width: 244px;
+        display: flex;
+        justify-content: end;
+        align-items: start;
+        flex-direction: column;
+        a {
+          color: #fff;
+          font-family: "Geologica Roman";
+          font-size: 24px;
+          font-weight: 300;
+          text-decoration: none;
+          @media (max-width: 1366px) {
+            font-size: 20px;
+          }
+          @media (max-width: 768px) {
+            font-size: 18px;
+          }
+          @media (max-width: 530px) {
+            font-size: 12px;
+          }
+          p {
+            color: #fff;
+            font-family: "Mulish";
+            font-size: 20px;
+            font-weight: 500;
+            @media (max-width: 1366px) {
+              font-size: 16px;
+            }
+            @media (max-width: 768px) {
+              font-size: 15px;
+            }
+            @media (max-width: 530px) {
+              font-size: 10px;
+            }
+            span {
+              color: #5ac9ff;
+            }
+          }
+        }
+      }
+    }
+  }
+}

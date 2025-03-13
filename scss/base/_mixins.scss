@@ -1,0 +1,27 @@
+@mixin button {
+  display: flex;
+  max-height: 55px;
+  padding: 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  color: #fff;
+  text-align: center;
+  font-family: "Mulish";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  background: linear-gradient(96deg, #ff1b0e 1.51%, #d72f04 83.22%);
+  cursor: pointer;
+  background-size: 300% 100%;
+  transition: background-position 0.4s ease;
+
+  &:hover {
+    background-position: 100% 0;
+  }
+}
