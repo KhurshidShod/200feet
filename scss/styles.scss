@@ -292,7 +292,7 @@
   }
 }
 .sections_wrapper {
-  background: url(../images/landscape-contry-road-travel-destination-rural-concept\ 1.png);
+  background: url(../images/landscape-contry-road-travel-destination-rural-concept\ 1.webp);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -611,7 +611,7 @@
                 width: 107px;
               }
             }
-            h1 {
+            h2 {
               position: absolute;
               z-index: 2;
               color: #eef1f5;
@@ -644,11 +644,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 130px;
-  background-image: url(../images/stats_bg.png);
+  background-image: url(../images/stats_bg.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  flex-direction: column;
+  z-index: -1;
   .section_number {
     position: absolute;
     left: 30px;
@@ -749,6 +750,56 @@
           line-height: normal;
         }
       }
+    }
+  }
+  .container_img {
+    width: 100%;
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+.meeting {
+  width: 100%;
+  padding-top: 150px;
+  padding-bottom: 140px;
+  background-image: url(../images/meeting-bg.webp);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  &_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    h1 {
+      color: #18253d;
+      font-family: "Grandis Extended";
+      font-size: 54px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: 2.7px;
+      text-transform: uppercase;
+      span {
+        color: #d92f00;
+      }
+      margin-bottom: 20px;
+      max-width: 500px;
+    }
+    p {
+      color: #18253d;
+      font-family: "Mulish";
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+      letter-spacing: 1.6px;
+      max-width: 530px;
+      margin-bottom: 60px;
+    }
+    button {
+      @include button;
     }
   }
 }

@@ -8,7 +8,8 @@
       rel="stylesheet"
       href="./phoneValidatorUtils/css/intlTelInput.min.css"
     />
-    <title>Document</title>
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self';" /> -->
+    <title>200Футов</title>
   </head>
   <body>
     <main>
@@ -78,7 +79,7 @@
               </p>
             </div>
             <div class="hero_wrapper-bottom">
-              <img src="./images/hero/hero_truck.png" alt="" />
+              <img src="./images/hero/hero_truck.webp" alt="" />
               <div class="hero_wrapper-bottom-cards">
                 <div class="card">
                   <span>Свой автопарк</span>
@@ -112,7 +113,8 @@
             <div class="hero_wrapper-form">
               <p>Перезвоним в ближайшее время</p>
               <div class="group">
-                <input id="phone" type="tel" name="" id="" />
+                <label for="tel"></label>
+                <input id="phone" type="tel" name="tel" id="tel" />
                 <button>ЗАказать звонок</button>
               </div>
             </div>
@@ -138,6 +140,7 @@
                   webkitAllowFullScreen
                   mozallowfullscreen
                   allowfullscreen
+                  title="vide"
                 ></iframe>
               </div>
             </div>
@@ -164,7 +167,7 @@
                   </div>
                   <div class="card1_bottom">
                     <img src="./images/services/first_servicebg.svg" alt="" />
-                    <h1>01</h1>
+                    <h2>01</h2>
                   </div>
                 </div>
                 <h1 class="card_text">наши <span>услуги</span></h1>
@@ -246,29 +249,48 @@
             </p>
             <div class="stats_wrapper-stats">
               <div class="stat">
-                <h3>3500+</h3>
+                <h3><span class="counter" data-target="3500">0</span>+</h3>
                 <p>перевозок в месяц</p>
               </div>
               <div class="stat">
-                <h3>80+</h3>
+                <h3><span class="counter" data-target="80">0</span>+</h3>
                 <p>сотрудников</p>
               </div>
               <div class="stat">
-                <h3>250+</h3>
+                <h3><span class="counter" data-target="250">0</span>+</h3>
                 <p>ТС в собственности и в управлении</p>
               </div>
               <div class="stat">
-                <h3>2</h3>
+                <h3><span class="counter" data-target="2">0</span></h3>
                 <p>колонны машин в Москве и Питере</p>
               </div>
             </div>
+          </div>
+        </div>
+        <img
+          class="container_img"
+          src="./images/stats/container_img.webp"
+          alt=""
+        />
+      </section>
+      <section class="meeting">
+        <div class="container">
+          <div class="meeting_wrapper">
+            <h1>ЗАпишись на <span>online встречу</span></h1>
+            <p>
+              Ответим на все ваши вопросы  по видеосвязи, не занимая времени на
+              дорогу
+            </p>
+            <button>записаться на встречу</button>
           </div>
         </div>
       </section>
     </main>
   </body>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="./phoneValidatorUtils/js/intlTelInput.min.js"></script>
+  <script src="./phoneValidatorUtils/js/intlTelInput.min.js" as="script"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
   <script>
     $(window).on("scroll", function () {
       $("header").toggleClass("sticky", $(this).scrollTop() > 100);
@@ -276,6 +298,46 @@
     $(document).ready(function () {
       var input = $("#phone")[0];
       window.intlTelInput(input, {});
+    });
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to(".container_img", {
+      y: 0,
+      opacity: 1,
+      duration: 1.5,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".container_img",
+        start: "top 150%", // when top of image hits 80% of viewport
+        end: "top 30%", // optional: when top reaches 30% of viewport
+        scrub: true, // smooth animation while scrolling
+      },
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+      const counters = document.querySelectorAll(".counter");
+
+      counters.forEach((counter) => {
+        const target = +counter.getAttribute("data-target");
+
+        gsap.fromTo(
+          counter,
+          { innerText: 0 },
+          {
+            innerText: target,
+            duration: 2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: counter,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            },
+            snap: { innerText: 1 }, // counts only whole numbers
+            onUpdate: function () {
+              counter.textContent = Math.round(this.targets()[0].innerText);
+            },
+          }
+        );
+      });
     });
   </script>
 </html>
