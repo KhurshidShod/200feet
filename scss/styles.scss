@@ -767,6 +767,15 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  @media (max-width: 768px) {
+    background: linear-gradient(
+      180deg,
+      #e8edf4 85.85%,
+      rgba(232, 237, 244, 0) 100%
+    );
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
   .section_number {
     position: absolute;
     left: 30px;
@@ -779,6 +788,14 @@
     justify-content: start;
     align-items: start;
     flex-direction: column;
+    .meeting_dynamic_img {
+      display: none;
+      @media (max-width: 768px) {
+        display: flex;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
     h1 {
       color: #18253d;
       font-family: "Grandis Extended";
@@ -788,6 +805,15 @@
       line-height: normal;
       letter-spacing: 2.7px;
       text-transform: uppercase;
+      @media (max-width: 768px) {
+        font-size: 48px;
+      }
+      @media (max-width: 520px) {
+        font-size: 24px;
+        text-align: center;
+        width: 100%;
+        max-width: none;
+      }
       span {
         color: #d92f00;
       }
@@ -804,9 +830,21 @@
       letter-spacing: 1.6px;
       max-width: 530px;
       margin-bottom: 60px;
+      @media (max-width: 768px) {
+        font-size: 20px;
+      }
+      @media (max-width: 520px) {
+        font-size: 16px;
+        text-align: center;
+        width: 100%;
+        max-width: none;
+      }
     }
     button {
       @include button;
+      @media (max-width: 520px) {
+        width: 100%;
+      }
     }
   }
 }
@@ -1220,6 +1258,7 @@
           }
           @media (max-width: 520px) {
             font-size: 20px;
+            max-width: 80%;
           }
         }
         p {
