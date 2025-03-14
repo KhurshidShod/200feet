@@ -73,7 +73,8 @@
             <div class="header_contact">
               <div class="header_contact-icons">
                 <span>
-                  <svg
+                  <a href="https://t.me/+89060968613">
+                    <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="32"
                     height="33"
@@ -85,9 +86,11 @@
                       fill="#5AC9FF"
                     />
                   </svg>
+                  </a>
                 </span>
                 <span>
-                  <svg
+                  <a href="https://wa.me/89060968613">
+                    <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="33"
                     height="33"
@@ -99,6 +102,8 @@
                       fill="#5AC9FF"
                     />
                   </svg>
+                  </a>
+                  
                 </span>
               </div>
               <div class="header_contact-info">
@@ -997,11 +1002,11 @@ const submitModalForm = (e) => {
   e.preventDefault();
   const name = e.target[0].value;
   const tel = e.target[1].value;
-  const mailtoLink = `mailto:khurshid.upwork@gmail.com?subject=Contact Form Submission&body=Name: ${name}%0ATel: khurshid.lenovo@gmail.com%0AMessage: ${name+tel}`;
-      window.location.href = mailtoLink;
-  // closeMeetingRegisterModal();
-  // closeOrderCallModal();
-  // openReqReceivedModal()
+  const mailtoLink = `mailto:sales@20ft.su?subject=Contact Form Submission&body=Name: ${name}%0ATel: ${tel}%0AMessage: ${"имя: " + name+"Телефон: "+tel}`;
+  window.location.href = mailtoLink;
+  closeMeetingRegisterModal();
+  closeOrderCallModal();
+  openReqReceivedModal()
 }
 
 window.addEventListener("resize", responsiceCarousel);
