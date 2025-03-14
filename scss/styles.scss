@@ -1857,11 +1857,6 @@
         width: calc(100% / 6 - 30px);
         min-width: 150px;
         flex-grow: 1;
-        // &:hover{
-        //   image{
-        //     filter: none !important;
-        //   }
-        // }
         img {
           width: 100%;
           filter: grayscale(100%);

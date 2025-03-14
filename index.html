@@ -24,8 +24,8 @@
         </div>
         <div class="right">
           <form action="">
-            <input type="text" placeholder="Ваше имя" name="" id="">
-            <input type="text" placeholder="Телефон" name="" id="">
+            <input type="text" placeholder="Ваше имя" name="name" id="">
+            <input type="text" placeholder="Телефон" name="tel" id="">
             <button>записаться на встречу</button>
           </form>
         </div>
@@ -43,8 +43,8 @@
         </div>
         <div class="right">
           <form action="" onsubmit="submitModalForm(event)">
-            <input type="text" placeholder="Ваше имя" name="" id="">
-            <input type="text" placeholder="Телефон" name="" id="">
+            <input type="text" placeholder="Ваше имя" name="name" id="">
+            <input type="text" placeholder="Телефон" name="tel" id="">
             <button onclick="openOrderCallModal()">заказать звонок</button>
           </form>
         </div>
@@ -995,9 +995,13 @@ const openReqReceivedModal = () => {
 }
 const submitModalForm = (e) => {
   e.preventDefault();
-  closeMeetingRegisterModal();
-  closeOrderCallModal();
-  openReqReceivedModal()
+  const name = e.target[0].value;
+  const tel = e.target[1].value;
+  const mailtoLink = `mailto:khurshid.upwork@gmail.com?subject=Contact Form Submission&body=Name: ${name}%0ATel: khurshid.lenovo@gmail.com%0AMessage: ${name+tel}`;
+      window.location.href = mailtoLink;
+  // closeMeetingRegisterModal();
+  // closeOrderCallModal();
+  // openReqReceivedModal()
 }
 
 window.addEventListener("resize", responsiceCarousel);
