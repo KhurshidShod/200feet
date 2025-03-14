@@ -23,7 +23,7 @@
           <p>Оставьте свои данные и наш сотрудник свяжестя с Вами  в ближайшее время</p>
         </div>
         <div class="right">
-          <form action="">
+          <form action="submit.php">
             <input type="text" placeholder="Ваше имя" name="name" id="">
             <input type="text" placeholder="Телефон" name="tel" id="">
             <button>записаться на встречу</button>
@@ -1238,8 +1238,6 @@ const openReqReceivedModal = () => {
 
 const submitModalForm = (e) => {
   e.preventDefault();
-  const name = $(e.target).find("input").eq(0).val();
-  const tel = $(e.target).find("input").eq(1).val();
   const mailtoLink = `mailto:sales@20ft.su?subject=Contact Form Submission&body=Name: ${name}%0ATel: ${tel}%0AMessage: ${"имя: " + name + " Телефон: " + tel}`;
   window.location.href = mailtoLink;
   closeMeetingRegisterModal();
