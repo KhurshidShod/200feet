@@ -1042,6 +1042,7 @@
     </main>
   </body>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script
     src="./phoneValidatorUtils/js/intlTelInput.min.js"
     as="script"
@@ -1101,7 +1102,9 @@
   "vn", // Vietnam +84
   "ye"  // Yemen +967
 ];
-
+(function(){
+            emailjs.init("59tybsYNSwpDCq_sJ"); // Replace with your User ID
+        })();
     $(window).on("scroll", function () {
       $("header").toggleClass("sticky", $(this).scrollTop() > 100);
     });
@@ -1276,8 +1279,16 @@ const openReqReceivedModal = () => {
 
 const submitModalForm = (e) => {
   e.preventDefault();
-  const mailtoLink = `mailto:sales@20ft.su?subject=Contact Form Submission&body=Name: ${name}%0ATel: ${tel}%0AMessage: ${"имя: " + name + " Телефон: " + tel}`;
-  window.location.href = mailtoLink;
+  // let formData = {
+  //   name: e.target[0].value,
+  //   tel: e.target[1].value,
+  // }
+emailjs.sendForm("service_6jgw2wc", "template_ze4m30b", e.target)
+.then(function(response) {
+    console.log("SUCCESS!", response.status, response.text);
+}, function(error) {
+    console.error("FAILED...", error);
+});
   closeMeetingRegisterModal();
   closeOrderCallModal();
   openReqReceivedModal();
