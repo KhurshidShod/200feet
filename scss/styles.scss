@@ -2158,6 +2158,9 @@
       @include button;
       background: linear-gradient(96deg, #19529a 1.51%, #081b34 83.22%);
       margin-top: 50px;
+      @media (max-width: 768px) {
+        margin-top: 0px;
+      }
     }
     h1 {
       color: #18253d;
