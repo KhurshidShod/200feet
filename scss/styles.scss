@@ -2091,6 +2091,9 @@
         width: calc(100% / 3 - 30px);
         flex-grow: 1;
         max-width: 335px;
+        @media (max-width: 375px) {
+          max-width: none;
+        }
       }
     }
   }
