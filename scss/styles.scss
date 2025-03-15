@@ -1163,6 +1163,9 @@
         align-items: center;
         flex-direction: column;
         padding: 1rem;
+        @media (max-width: 520px) {
+          padding: 10px;
+        }
         &:first-child {
           padding-bottom: 3rem;
           margin-top: 1.5rem;
