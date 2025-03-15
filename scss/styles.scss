@@ -2286,15 +2286,25 @@
               text-decoration-thickness: auto;
               text-underline-offset: auto;
               opacity: 1;
-              a{
+              a {
                 color: #052421;
+                font-family: "Mulish";
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                text-decoration-line: underline;
+                text-decoration-style: solid;
+                text-decoration-skip-ink: auto;
+                text-decoration-thickness: auto;
+                text-underline-offset: auto;
               }
               &:first-child {
                 @media (max-width: 1366px) {
                   font-size: 13px;
                 }
-                a{
-                  text-decoration: none;
+                a {
+                  text-decoration: none !important;
                 }
               }
               span {
@@ -2376,7 +2386,7 @@
         align-items: center;
         gap: 13px;
         a {
-          color: #FFF;
+          color: #fff;
           text-decoration: none;
           display: flex;
           justify-content: center;
