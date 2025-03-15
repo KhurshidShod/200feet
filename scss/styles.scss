@@ -2286,9 +2286,15 @@
               text-decoration-thickness: auto;
               text-underline-offset: auto;
               opacity: 1;
+              a{
+                color: #052421;
+              }
               &:first-child {
                 @media (max-width: 1366px) {
                   font-size: 13px;
+                }
+                a{
+                  text-decoration: none;
                 }
               }
               span {
