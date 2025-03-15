@@ -656,6 +656,10 @@
     padding-bottom: 50px;
     background-position: center;
     background-repeat: no-repeat;
+    @media (max-width: 850px) {
+      padding-top: 75px;
+      padding-bottom: 75px;
+    }
     .section_number {
       position: absolute;
       left: 5px;
@@ -754,13 +758,14 @@
           grid-column: span 2;
           color: #18253d;
           font-family: "Grandis Extended";
-          font-size: 80px;
+          font-size: 75px;
           font-style: normal;
           font-weight: 700;
           line-height: normal;
           letter-spacing: 4.35px;
           text-transform: uppercase;
           flex-grow: 1;
+          white-space: nowrap;
           @media (max-width: 1150px) {
             grid-column: span 1;
           }
@@ -1106,6 +1111,12 @@
       flex-direction: row;
       flex-wrap: wrap;
       gap: 0;
+      @media (max-width: 768px) {
+        padding-top: 50px;
+      }
+      @media (max-width: 768px) {
+        margin-bottom: -35px;
+      }
       .stat {
         width: calc(100% / 2);
         // min-width: 250px;
@@ -1157,8 +1168,6 @@
   }
   .container_img {
     width: 100%;
-    opacity: 0;
-    transform: translateY(100%);
   }
 }
 .meeting {
@@ -1374,8 +1383,14 @@
             @media (max-width: 768px) {
               flex-direction: row-reverse;
             }
+            @media (max-width: 600px) {
+              flex-direction: column-reverse;
+            }
             div {
               width: calc(100% / 2 - 15px);
+              @media (max-width: 600px) {
+                width: 100%;
+              }
               &:last-child {
                 display: flex;
                 justify-content: center;
@@ -1474,6 +1489,7 @@
             z-index: 2;
             @media (max-width: 768px) {
               order: 6;
+              font-size: 16px;
             }
           }
         }
@@ -1488,6 +1504,9 @@
   padding-bottom: 100px;
   background: linear-gradient(344deg, #fff 66.67%, #e1e6ee 116.3%);
   overflow-x: hidden;
+  @media (max-width: 768px) {
+    padding-bottom: 50px;
+  }
   .section_number {
     position: absolute;
     left: 5px;
@@ -1518,6 +1537,15 @@
   .truck_bottom {
     width: 100%;
     margin-top: 100px;
+    @media (max-width: 768px) {
+      margin-top: 400px;
+    }
+    @media (max-width: 600px) {
+      margin-top: 300px;
+    }
+    @media (max-width: 450px) {
+      margin-top: 250px;
+    }
   }
   &_wrapper {
     width: 100%;
@@ -1583,6 +1611,9 @@
       flex-wrap: wrap;
       gap: 30px;
       margin-top: 80px;
+      @media (max-width: 1050px) {
+        gap: 15px;
+      }
       @media (max-width: 768px) {
         flex-direction: column;
         margin-top: 30px;
@@ -1599,8 +1630,11 @@
         padding: 18px 13px;
         border: 1px solid #d9d9d9;
         height: 437px;
-        min-width: 300px;
         margin-top: 5rem;
+        flex-grow: 1;
+        @media (max-width: 1050px) {
+          width: calc(100% / 3 - 15px);
+        }
         @media (max-width: 768px) {
           width: 100%;
           height: auto;
@@ -1958,15 +1992,17 @@
     &-cards {
       width: 100%;
       display: flex;
-      justify-content: start;
+      justify-content: center;
       align-items: center;
       flex-direction: row;
       flex-wrap: wrap;
       gap: 30px;
       .card {
         width: calc(100% / 6 - 30px);
-        min-width: 150px;
         flex-grow: 1;
+        @media (max-width: 768px) {
+          width: calc(100% / 4 - 30px);
+        }
         img {
           width: 100%;
         }
@@ -1975,6 +2011,7 @@
         @include button;
         width: calc(100% / 3 - 30px);
         flex-grow: 1;
+        max-width: 335px;
       }
     }
   }
@@ -2082,10 +2119,14 @@
         .right {
           width: 55%;
           padding-left: 30px;
+          padding-right: 30px;
           display: flex;
           justify-content: center;
           align-items: start;
           flex-direction: column;
+          @media (max-width: 1160px) {
+            padding-left: 15px;
+          }
           @media (max-width: 1050px) {
             width: 100%;
             padding: 30px;
@@ -2127,7 +2168,7 @@
               justify-content: start;
               align-items: center;
               gap: 10px;
-              color: #052421;
+              color: #052421 !important;
               font-family: "Mulish";
               font-size: 16px;
               font-style: normal;
