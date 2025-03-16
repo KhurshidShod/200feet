@@ -24,8 +24,8 @@
         </div>
         <div class="right">
           <form onsubmit="submitModalForm(event)" action="">
-            <input type="text" placeholder="Ваше имя" name="name" id="">
-            <input type="text" placeholder="Телефон" name="tel" id="">
+            <input oninput="formData[event.target.id] = event.target.value" type="text" placeholder="Ваше имя" name="name" id="">
+            <input oninput="formData[event.target.id] = event.target.value" type="text" placeholder="Телефон" name="tel" id="">
             <button>записаться на встречу</button>
           </form>
         </div>
@@ -43,8 +43,8 @@
         </div>
         <div class="right">
           <form action="" onsubmit="submitModalForm(event)">
-            <input type="text" placeholder="Ваше имя" name="name" id="">
-            <input type="text" placeholder="Телефон" name="tel" id="">
+            <input oninput="formData[event.target.id] = event.target.value" type="text" placeholder="Ваше имя" name="name" id="name">
+            <input oninput="formData[event.target.id] = event.target.value" type="text" placeholder="Телефон" name="tel" id="tel">
             <button onclick="openOrderCallModal()">заказать звонок</button>
           </form>
         </div>
