@@ -2105,9 +2105,9 @@
       }
       button {
         @include button;
-        width: calc(100% / 3 - 15px);
+        width: calc(100% / 3 - 30px);
         flex-grow: 1;
-        max-width: 335px;
+        max-width: 380px;
         @media (max-width: 375px) {
           max-width: none;
           width: 100%;
