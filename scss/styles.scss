@@ -1562,6 +1562,10 @@
   }
 }
 .risk {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   position: relative;
   width: 100%;
   padding-top: 140px;
@@ -1873,6 +1877,9 @@
         &:hover {
           background-color: transparent !important;
         }
+        @media (max-width: 380px) {
+          top: 45%;
+        }
       }
       .owl-next {
         position: absolute;
@@ -1880,6 +1887,9 @@
         right: -20px;
         &:hover {
           background-color: transparent !important;
+        }
+        @media (max-width: 380px) {
+          top: 45%;
         }
       }
     }
@@ -2086,18 +2096,23 @@
     &-cards {
       width: 100%;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       flex-direction: row;
       flex-wrap: wrap;
       gap: 30px;
       @media (max-width: 520px) {
         gap: 15px;
+        justify-content: center;
       }
       .card {
         width: calc(100% / 6 - 30px);
         @media (max-width: 768px) {
+          width: calc(100% / 5 - 15px);
+        }
+        @media (max-width: 520px) {
           width: calc(100% / 4 - 15px);
+          background-color: red;
         }
         img {
           width: 100%;
@@ -2105,12 +2120,16 @@
       }
       button {
         @include button;
-        width: calc(100% / 3 - 30px);
+        width: calc(100% / 3 - 15px);
         flex-grow: 1;
         max-width: 380px;
         @media (max-width: 375px) {
           max-width: none;
           width: 100%;
+        }
+        @media (max-width: 768px) {
+          width: 100%;
+          max-width: none;
         }
       }
     }
