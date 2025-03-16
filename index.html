@@ -23,7 +23,7 @@
           <p>Оставьте свои данные и наш сотрудник свяжестя с Вами  в ближайшее время</p>
         </div>
         <div class="right">
-          <form action="">
+          <form onsubmit="submitModalForm(event)" action="">
             <input type="text" placeholder="Ваше имя" name="name" id="">
             <input type="text" placeholder="Телефон" name="tel" id="">
             <button>записаться на встречу</button>
@@ -88,10 +88,6 @@
                   <a href="tel:+74951650220">+7 (495) 165 02 20</a><br>
                   или <span onclick="openOrderCallModal()">закажите звонок</span>
                 </p>
-                <!-- <a href="tel:+74951650220"
-                  >+7 (495) 165 02 20
-                  <p>или <span>закажите звонок</span></p></a
-                > -->
               </div>
             </div>
           </nav>
@@ -345,33 +341,33 @@
             </div>
             <div class="price_wrapper-right">
               <h1>Расчет стоимости</h1>
-              <form action="">
+              <form onsubmit="submitModalForm(event); return false;" action="">
                 <div>
-                  <input placeholder="Ваше имя" type="text" name="" id="" />
+                  <input oninput="formData[event.target.id] = event.target.value" placeholder="Ваше имя" type="text" name="" id="name" />
                 </div>
                 <div>
-                  <input placeholder="Телефон" type="tel" name="" id="" />
+                  <input oninput="formData[event.target.id] = event.target.value" placeholder="Телефон" type="tel" name="" id="tel" />
                 </div>
                 <div>
-                  <input placeholder="Откуда" type="text" name="" id="" />
+                  <input oninput="formData[event.target.id] = event.target.value" placeholder="Откуда" type="text" name="" id="from" />
                 </div>
                 <div>
-                  <input placeholder="Куда" type="text" name="" id="" />
+                  <input oninput="formData[event.target.id] = event.target.value" placeholder="Куда" type="text" name="" id="to" />
                 </div>
                 <div>
-                  <input placeholder="Вес" type="text" name="" id="" />
+                  <input oninput="formData[event.target.id] = event.target.value" placeholder="Вес" type="text" name="" id="weight" />
                 </div>
                 <div>
-                  <input
+                  <input oninput="formData[event.target.id] = event.target.value"
                     placeholder="Тип ктк (20 или 40 футов)"
                     type="text"
                     name=""
-                    id=""
+                    id="length"
                   />
                 </div>
                 <div>
                   <div>
-                    <button>получить расчет</button>
+                    <button type="submit">получить расчет</button>
                   </div>
                   <div>
                     <label class="checkbox_container">
@@ -1056,6 +1052,14 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
   <script>
+    const formData = {
+      name: "",
+      tel: "",
+      from: "",
+      to: "",
+      weight: "",
+      length: ""
+    }
     const asianCountryCodes = [
   "af", // Afghanistan +93
   "am", // Armenia +374
@@ -1107,9 +1111,6 @@
   "vn", // Vietnam +84
   "ye"  // Yemen +967
 ];
-(function(){
-            emailjs.init("59tybsYNSwpDCq_sJ"); // Replace with your User ID
-        })();
     $(window).on("scroll", function () {
       $("header").toggleClass("sticky", $(this).scrollTop() > 100);
     });
@@ -1264,10 +1265,31 @@ const closeReqReceivedModal = () => {
 const openReqReceivedModal = () => {
   $(".request_received").css("display", "flex");
 }
-
+(function(){
+            emailjs.init("peG-nh3X63_KXSDBM"); // Replace with your User ID
+        })();
 const submitModalForm = (e) => {
   e.preventDefault();
-emailjs.sendForm("service_6jgw2wc", "template_ze4m30b", e.target)
+  let templateData = {};
+  if(formData.name !== "") templateData.name = formData.name;
+  if(formData.tel !== "") templateData.tel = formData.tel;
+  if(formData.weight !== "") templateData.weight = formData.weight;
+  if(formData.length !== "") templateData.length = formData.length;
+  if(formData.from !== "") templateData.from = formData.from;
+  if(formData.to !== "") templateData.to = formData.to;
+
+  let formEmail = document.createElement("form");
+document.body.appendChild(formEmail);
+
+Object.entries(templateData).forEach(([key, value]) => {
+  let input = document.createElement("input");
+  input.type = "hidden";
+  input.name = key;
+  input.value = value;
+  formEmail.appendChild(input);
+});
+
+  emailjs.sendForm("service_dxw5onp", "template_4xlx8ei", formEmail)
 .then(function(response) {
     console.log("SUCCESS!", response.status, response.text);
 }, function(error) {
@@ -1285,10 +1307,8 @@ $(window).on("resize", () => {
 
     document.addEventListener("DOMContentLoaded", function () {
       const counters = document.querySelectorAll(".counter");
-
       counters.forEach((counter) => {
         const target = +counter.getAttribute("data-target");
-
         gsap.fromTo(
           counter,
           { innerText: 0 },
